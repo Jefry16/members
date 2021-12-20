@@ -1,0 +1,65 @@
+.about-me__content{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.about-me__img {
+    width: 8.2rem;
+    height: 8.2rem;
+    border-radius: 50%;
+}
+
+.about-me__socials{
+    display: flex;
+    gap: 1.2rem;
+}
+
+.about-me__in, .about-me__lk{
+    flex-basis: 3.1rem;
+}
+
+.about-me__btn{
+    display: block;
+    margin: 0 auto;
+    width: auto;
+}
+
+.single-post__title{
+    font-size: 1.6rem;
+}
+
+.single-post__container{
+    box-shadow: 0px 2px 4px #00000029;
+    
+    padding: 1.2rem;
+}
+
+.opinions{
+    padding: 1rem;
+}
+
+.opinions__container{
+    background-color: #F2ECDF;
+    border-radius: 1.5rem;
+    padding: 1rem;
+}
+
+.opinions__name{
+    color: #727272;
+    font-size: 1.8rem;
+}
+
+.opinions__starts{
+    width: 45%;
+    margin: 1rem 0;
+}
+
+.opinions__commet{
+    color: #727272;
+}
+
+#visit-blog-btn{
+    display: block;
+    width: 100%;
+}

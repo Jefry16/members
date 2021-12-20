@@ -1,0 +1,64 @@
+html {
+    font-size: 62.5%;
+    box-sizing: border-box;
+}
+ *:before, *:after, * {
+    box-sizing: inherit;
+    padding: 0;
+    margin: 0;
+
+}
+body {
+    font-family: Calibri, 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
+    font-size: 1.6rem;
+    line-height: 1.8;
+}
+p {
+    font-size: 1.7rem;
+    line-height: 1.3;
+}
+.mobile-container {
+    padding: 2.4rem;
+}
+
+a {
+    text-decoration: none;
+}
+
+img,
+picture {
+    width: 100%;
+    display: block;
+}
+
+h1, h2, h3 {
+    line-height: 1.2;
+}
+
+h1 {
+    font-size: 3rem;
+}
+h2 {
+    font-size: 2.5rem;
+}
+h3 {
+    font-size: 2.3rem;
+}
+
+.slim-heading{
+    font-weight: 100;
+}
+
+.btn{
+    border: none;
+    color: #fff;
+    padding: 1rem 3rem;
+    font-size: 1.6rem;
+    font-weight: 500;
+    border-radius: 1rem;
+    cursor: pointer;
+}
+
+.btn-brown{
+    background-color: #DCC0B3;
+}

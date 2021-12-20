@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="129" height="28" viewBox="0 0 129 28">
+  <defs>
+    <filter id="Polígono_1" x="0" y="0" width="29" height="28" filterUnits="userSpaceOnUse">
+      <feOffset dy="1" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="1" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Polígono_2" x="25" y="0" width="29" height="28" filterUnits="userSpaceOnUse">
+      <feOffset dy="1" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="1" result="blur-2"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur-2"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Polígono_3" x="50" y="0" width="29" height="28" filterUnits="userSpaceOnUse">
+      <feOffset dy="1" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="1" result="blur-3"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur-3"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Polígono_4" x="75" y="0" width="29" height="28" filterUnits="userSpaceOnUse">
+      <feOffset dy="1" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="1" result="blur-4"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur-4"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Trazado_3249" x="100" y="0" width="29" height="28" filterUnits="userSpaceOnUse">
+      <feOffset dy="1" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="1" result="blur-5"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur-5"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Componente_2_1" data-name="Componente 2 – 1" transform="translate(3 2)">
+    <g transform="matrix(1, 0, 0, 1, -3, -2)" filter="url(#Polígono_1)">
+      <path id="Polígono_1-2" data-name="Polígono 1" d="M11.5,0l2.875,8.181L23,8.4l-6.848,5.278L18.607,22,11.5,17.081,4.393,22l2.456-8.319L0,8.4l8.625-.222Z" transform="translate(3 2)" fill="#dcc0b3"/>
+    </g>
+    <g transform="matrix(1, 0, 0, 1, -3, -2)" filter="url(#Polígono_2)">
+      <path id="Polígono_2-2" data-name="Polígono 2" d="M11.5,0l2.875,8.181L23,8.4l-6.848,5.278L18.607,22,11.5,17.081,4.393,22l2.456-8.319L0,8.4l8.625-.222Z" transform="translate(28 2)" fill="#dcc0b3"/>
+    </g>
+    <g transform="matrix(1, 0, 0, 1, -3, -2)" filter="url(#Polígono_3)">
+      <path id="Polígono_3-2" data-name="Polígono 3" d="M11.5,0l2.875,8.181L23,8.4l-6.848,5.278L18.607,22,11.5,17.081,4.393,22l2.456-8.319L0,8.4l8.625-.222Z" transform="translate(53 2)" fill="#dcc0b3"/>
+    </g>
+    <g transform="matrix(1, 0, 0, 1, -3, -2)" filter="url(#Polígono_4)">
+      <path id="Polígono_4-2" data-name="Polígono 4" d="M11.5,0l2.875,8.181L23,8.4l-6.848,5.278L18.607,22,11.5,17.081,4.393,22l2.456-8.319L0,8.4l8.625-.222Z" transform="translate(78 2)" fill="#dcc0b3"/>
+    </g>
+    <g transform="matrix(1, 0, 0, 1, -3, -2)" filter="url(#Trazado_3249)">
+      <g id="Trazado_3249-2" data-name="Trazado 3249" transform="translate(103 2)" fill="none">
+        <path d="M11.5,0l2.875,8.181L23,8.4l-6.848,5.278L18.607,22,11.5,17.081,4.393,22l2.456-8.319L0,8.4l8.625-.222Z" stroke="none"/>
+        <path d="M 11.5 3.016302108764648 L 9.339889526367188 9.163411140441895 L 2.841169357299805 9.330521583557129 L 8.00117015838623 13.30759048461914 L 6.154182434082031 19.56457138061523 L 11.5 15.86448097229004 L 16.84581756591797 19.56457138061523 L 14.99882984161377 13.30759048461914 L 20.1588306427002 9.330521583557129 L 13.66011047363281 9.163411140441895 L 11.5 3.016302108764648 M 11.5 1.9073486328125e-06 L 14.375 8.181461334228516 L 23 8.403250694274902 L 16.1518497467041 13.68146133422852 L 18.60738945007324 22 L 11.5 17.08065032958984 L 4.392610549926758 22 L 6.848150253295898 13.68146133422852 L 0 8.403250694274902 L 8.625 8.181461334228516 L 11.5 1.9073486328125e-06 Z" stroke="none" fill="#dcc0b3"/>
+      </g>
+    </g>
+  </g>
+</svg>
