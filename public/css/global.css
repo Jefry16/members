@@ -12,6 +12,7 @@ body {
     font-family: Calibri, 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
     font-size: 1.6rem;
     line-height: 1.8;
+    color: #727272;
 }
 p {
     font-size: 1.7rem;
@@ -33,6 +34,7 @@ picture {
 
 h1, h2, h3 {
     line-height: 1.2;
+    font-weight: 100;
 }
 
 h1 {
@@ -61,4 +63,28 @@ h3 {
 
 .btn-brown{
     background-color: #DCC0B3;
+}
+
+.btn-white{
+    background-color: #fff;
+    color: #DCC0B3;
+}
+
+.contact{
+    text-align: center;
+    margin-top: 5rem;
+    padding: 1rem;
+}
+.contact__description{
+    margin: 2rem 0;
+}
+
+.contact__item{
+    margin:  5rem 0;
+    font-size: 1.7rem;
+}
+
+.contact__img{
+    width: 4rem;
+    margin: 0 auto 1rem;
 }

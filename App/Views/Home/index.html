@@ -32,16 +32,17 @@
     <div class="single-post mobile-container">
         <div class="single-post__container">
             <div class="single-post__img-container">
+                <a href="#" class="btn btn-white single-post__btn">LEER</a>
                 <img src="/img/post-img.jpg" alt="post">
             </div>
             <div class="single-post__content">
                 <h2 class="single-post__title">Título de entrada del blog</h2>
-                <p class="single-post__description">Lorem ipsum dolor sit amet, consectetur adipisicing 
-                elit. Quo vitae corrupti voluptas veritatis ratione </p>
+               <em> <p class="single-post__description">Lorem ipsum dolor sit amet, consectetur adipisicing 
+                elit. Quo vitae corrupti voluptas veritatis ratione </p></em>
             </div>
         </div>
     </div>
-    <button class="btn btn-brown">Ir al blog <img src="/img/link-icon.svg" alt="link" style="display:inline; width:16px;"></button>
+    <button class="btn btn-brown visit-blog-btn">Ir al blog <img src="/img/link-icon.svg" alt="link" style="display:inline; width:16px;"></button>
     <div  class="opinions">
         <section class="opinions__container">
         <article class="opinions__box">
@@ -51,4 +52,5 @@
         </article>
         </section>
     </div>
+   {{ include('./theme/contact.html') }}
 {% endblock %}
