@@ -6,29 +6,12 @@
 
 {% block body %}
 
-    <section class="about-me mobile-container ">
-        <h2 class="about-me__title slim-heading">SOBRE MÍ</h2>
-        <div class="about-me__content">
-            <img src="/img/persona.jpg" alt="yo" class="about-me__img">
-            <div class="about-me__socials">
-                <img src="/img/lk.svg" alt="yo" class="about-me__lk">
-                <img src="/img/in.svg" alt="yo" class="about-me__in">
-            </div>
-        </div>
-        <p>Soy Caro, psicóloga por vocación, colegiada por el Colegio Oficial de Psicólogos de Andalucía Occidental (AN45678).</p>
-        <br>
-        <p>Estoy Graduada en Psicología por la Universidad Nacional de Educación a Distancia.</p>
-        <br>
-        <p>Tengo un Máster Oficial en Psicología Legal y Forense, así como otro en Psicología General Sanitaria.</p>
-        <br>
-        <p>Acompaño mediante un proceso terapéutico a las personas que atraviesan etapas complicadas en sus vidas, se enfrentan a situaciones que sienten que les sobrepasan o padecen algún trastorno mental.</p>
-        <br>
-        <p>Actualmente, trabajando en un Centro de Día para personas en riesgo de exclusión social y realizando terapia psicológica con menores y sus familias.</p>
-        <br>
-    </section>
+   {{ include('./theme/about-me.html') }}
+    
 
-    <button class="btn btn-brown about-me__btn">Más sobre mí</button>
-
+    
+    <a href="/sobre-mi"><button class="btn btn-brown about-me__btn">Más sobre mí</button></a>
+    
     <div class="single-post mobile-container">
         <div class="single-post__container">
             <div class="single-post__img-container">
@@ -42,7 +25,9 @@
             </div>
         </div>
     </div>
-    <button class="btn btn-brown visit-blog-btn">Ir al blog <img src="/img/link-icon.svg" alt="link" style="display:inline; width:16px;"></button>
+    
+    <a href="/blog"><button class="btn btn-brown visit-blog-btn">Ir al blog <img src="/img/link-icon.svg" alt="link" style="display:inline; width:16px;"></button></a>
+    
     <div  class="opinions">
         <section class="opinions__container">
         <article class="opinions__box">

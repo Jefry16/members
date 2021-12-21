@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="/css/global.css">
     <link rel="stylesheet" href="/css/header.css">
+    <link rel="stylesheet" href="/css/about-me.css">
     {% block stylesheet %} {% endblock %}
     <title>{% block title %}{% endblock %}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,7 +13,7 @@
 
     <header class="header">
         <img src="/img/menu-btn.svg" alt="menu icon" class="header__menu-icon">
-        <img src="/img/logo.svg" alt="logo" class="header__menu-logo">
+        <a href="/"><img src="/img/logo.svg" alt="logo" class="header__menu-logo"></a>
         <nav class="header__nav">
             <a href="#">SERVICIOS</a>
             <a href="#">PEDIR CITA</a>
@@ -22,6 +23,10 @@
     </header>
 
     {% block body %}
+    {% endblock %}
+
+    {% block footer %}
+    <footer>hello</footer>
     {% endblock %}
 </body>
 </html>

@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block body %}
+
+   {{ include('./theme/about-me.html') }}
+
+    <div class=" mobile-container about-list"> 
+        <button class="btn btn-brown">CURSOS ESPECIALISTA Y EXPERTA EN:</button>
+        <ul>
+            <li>Trastornos de conducta.</li>
+            <li>Mediación familiar y comunitaria.</li>
+            <li>Terapia de Aceptación y Compromiso.</li>
+            <li>Terapias de Tercera Generación.</li>
+            <li>Primeros Auxilios Psicológicos.</li>
+            <li>Regulación emocional mediante Mindfulness.</li>
+            <li>Procesos Cognitivos Básicos.</li>
+        </ul>
+        <button class="btn btn-brown">FORMACIÓN AUTODIDACTA EN:</button>
+        <ul>
+            <li>tratamiento del trauma mediante EMDR, hipnosis clínica y Psicología Transpersonal (conciencia de la espiritualidad).</li>
+        </ul>
+
+        <div class="brown-card values">
+            <h2 class="values__title">VALORES</h2>
+            <p>Respeto</p>
+            <p>Cercanía</p>
+            <p>Fe en las personas</p>
+            <p>Escucha Claridad</p>
+        </div>
+    </div>
+
+
+   {{ include('./theme/contact.html') }}
+{% endblock %}
