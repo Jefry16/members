@@ -1,10 +1,13 @@
 {% extends "base.html" %}
 {% block stylesheet %} 
 <link rel="stylesheet" href="/css/index.css">
+<link rel="stylesheet" href="/css/services.css">
 {% endblock %}
 {% block title %}Inicio{% endblock %}
 
 {% block body %}
+
+   {{ include('./theme/services.html') }}
 
    {{ include('./theme/about-me.html') }}
     

@@ -1,3 +1,7 @@
+:root {
+        --brown-color: #DCC0B3;
+  }
+
 html {
     font-size: 62.5%;
     box-sizing: border-box;
@@ -35,6 +39,7 @@ picture {
 h1, h2, h3 {
     line-height: 1.2;
     font-weight: 100;
+    text-align: center;
 }
 
 h1 {
@@ -59,15 +64,16 @@ h3 {
     font-weight: 500;
     border-radius: 1rem;
     cursor: pointer;
+    box-shadow: 0px 2px 3px #00000029;
 }
 
 .btn-brown{
-    background-color: #DCC0B3;
+    background-color: var(--brown-color);
 }
 
 .btn-white{
     background-color: #fff;
-    color: #DCC0B3;
+    color: var(--brown-color);
 }
 
 .contact{
@@ -98,13 +104,26 @@ h3 {
 }
 
 .brown-card{
-    background-color: #DCC0B3;
+    background-color: var(--brown-color);
     color: #fff;
     border-radius: 2rem;
 }
 
+.beige-card{
+    background-color: #EBE4D24D;
+    color:  var(--brown-color);
+    border-radius: 2rem;
+}
 
+.white-card{
+    box-shadow: 1px 3px 6px #00000029;
+    border-radius: 28px;
+    padding: 2rem;
+}
 
+._25{
+    width: 25%;
+}
 
 .single-post__title{
     font-size: 1.9rem;
@@ -148,7 +167,9 @@ h3 {
     opacity: .45;
 }
 
-
+.pill-btn{
+    border-radius: 20px;
+}
 
 .tag{
     display: inline-block;
@@ -166,5 +187,20 @@ h3 {
 
 .tag-beige{
     background-color: #F2ECDF;
-    color: #dcc0b3;
+    color: var(--brown-color);
 }
+input[type="text"] {
+    padding: 1rem;
+    font-size: 1.7rem;
+    display: block;
+    width: 100%;
+}
+
+.input-text{
+    margin: 2rem 0;
+}
+
+form{
+    padding: 2.4rem;
+}
+

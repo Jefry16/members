@@ -27,9 +27,10 @@ $router = new Core\Router();
 
 // Add the routes
 $router->add('', ['controller' => 'Home', 'action' => 'index']);
-$router->add('citas', ['controller' => 'Reservas', 'action' => 'index']);
+$router->add('citas', ['controller' => 'Citas', 'action' => 'index']);
 $router->add('blog', ['controller' => 'Blog', 'action' => 'index']);
 $router->add('sobre-mi', ['controller' => 'Statico', 'action' => 'me']);
+$router->add('precios', ['controller' => 'Statico', 'action' => 'precios']);
 $router->add('{controller}/{action}');
     
 $router->dispatch($_SERVER['QUERY_STRING']);

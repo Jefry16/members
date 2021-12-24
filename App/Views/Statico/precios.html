@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}Precios{% endblock %}
+{% block stylesheet %} 
+<link rel="stylesheet" href="/css/precios.css">
+{% endblock %}
+
+{% block body %}
+
+<main class="main mobile-container">
+    <h1 class="main__title">PRECIOS</h1>
+    <p class="main__price">Precio sesión: 40€</p>
+    <p class="main__price">Bono 5 sesiones: 175€</p>
+    <p class="main__">Duración: entre 45 y 60 minutos</p>
+
+    <button class="btn btn-brown" style="margin: 0 auto; display: block;">Pedir cita</button>
+
+    <div class="white-card">
+        <img src="/img/phono.svg" alt="phono" class="_25">
+        <p>Si el aspecto económico es el único
+         impedimento para pedir tu cita, ponte
+          en contacto conmigo y lo hablamos.</p>
+    </div>
+</main>
+   {{ include('./theme/contact.html') }}
+
+{% endblock %}

@@ -21,4 +21,9 @@ class Blog extends \Core\Controller
     {
         View::renderTemplate('Blog/index.html');
     }
+
+    public function categoriasAction()
+    {
+        View::renderTemplate('Blog/cathegories.html');
+    }
 }

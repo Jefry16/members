@@ -1,0 +1,28 @@
+.services{
+    overflow: auto;
+    white-space: nowrap;
+    padding: 2rem 1rem;
+}
+.services__item{
+    width: 12rem;
+    height: 12rem;
+    box-shadow: 0px 3px 6px #00000029;
+    border-radius: 15px;
+    position: relative;
+    display: inline-block;
+    margin: 0 0.5rem;
+}
+
+.services__icon{
+    height: 9.922rem;
+    position: absolute;
+    top: -1.5rem;
+}
+
+.services__item-title{
+    color: var(--brown-color);
+    position: absolute;
+    bottom: 0.5rem;
+    text-align: center;
+    width: 100%;
+}

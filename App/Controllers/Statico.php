@@ -26,4 +26,9 @@ class Statico extends \Core\Controller
     {
         View::renderTemplate('Statico/me.html');
     }
+
+    public function precios()
+    {
+        View::renderTemplate('Statico/precios.html');
+    }
 }
