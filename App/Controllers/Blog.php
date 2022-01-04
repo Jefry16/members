@@ -26,4 +26,9 @@ class Blog extends \Core\Controller
     {
         View::renderTemplate('Blog/cathegories.html');
     }
+
+    public function nuevo()
+    {
+
+    }
 }
