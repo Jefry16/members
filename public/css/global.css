@@ -1,5 +1,6 @@
 :root {
         --brown-color: #DCC0B3;
+        --beige-coloe: #F2ECDF;
   }
 
 html {
@@ -74,6 +75,10 @@ h3 {
 .btn-white{
     background-color: #fff;
     color: var(--brown-color);
+}
+
+.beige-bg{
+    background-color: var(--beige-coloe);
 }
 
 .contact{
@@ -170,6 +175,8 @@ h3 {
 .pill-btn{
     border-radius: 20px;
 }
+
+
 
 .tag{
     display: inline-block;

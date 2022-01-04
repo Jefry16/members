@@ -2,14 +2,18 @@
 
 {% block title %}Home{% endblock %}
 
+    {% block stylesheet %}
+    <link rel="stylesheet" href="/css/citas.css"> 
+    {% endblock %}
+
 {% block body %}
 
     <h1>PEDIR CITA</h1>
 
     <form>
-        <div>
-            <button class="btn pill-btn">ONLINE</button>
-            <button class="btn pill-btn">PRESENCIAL</button>
+        <div class="citas__actions">
+            <button class="btn pill-btn beige-bg" type="button">ONLINE</button>
+            <button class="btn pill-btn beige-bg" type="button">PRESENCIAL</button>
         </div>
         <div class="input-text">
             <input type="text" name="" id="" placeholder="Nombre y apellidos*">
