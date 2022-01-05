@@ -29,6 +29,6 @@ class Blog extends \Core\Controller
 
     public function nuevo()
     {
-
+        View::renderTemplate('Blog/new.html');
     }
 }

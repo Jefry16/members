@@ -1,0 +1,30 @@
+{% extends "base.back.html" %}
+
+{% block title %}Home{% endblock %}
+
+    {% block stylesheet %}
+    <link rel="stylesheet" href="/css/citas.css"> 
+    {% endblock %}
+
+{% block body %}
+
+    <h1>Nueva entrada</h1>
+
+    <form>
+
+        <div class="input-text">
+            <input type="text" name="" id="" placeholder="Titulo*">
+        </div>
+
+        <div class="input-text">
+            <input type="text" name="" id=""  placeholder="Telefono*">
+        </div>
+
+        <div class="input-text">
+            <input type="text" name="" id=""  placeholder="Mail (opcional)">
+        </div>
+
+        <input type="submit" value="Confirmar" class="btn btn-brown" style="display: block; margin: 6rem auto 0;">
+    </form>
+
+{% endblock %}

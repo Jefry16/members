@@ -15,15 +15,20 @@
         <img src="/img/menu-btn.svg" alt="menu icon" class="header__menu-icon">
         <a href="/"><img src="/img/logo.svg" alt="logo" class="header__menu-logo"></a>
         <nav class="header__nav">
+            <img src="/img/close-menu-btn.svg" alt="close icon" class="header__menu-icon-close">
+            <a href="/"><img src="/img/logo.svg" alt="logo" class="header__menu-logo"></a>
             <a href="#">SERVICIOS</a>
-            <a href="#">PEDIR CITA</a>
-            <a href="#">BLOG</a>
+            <a href="/sobre-mi">SOBRE MÍ</a>
+            <a href="/citas">PEDIR CITA</a>
+            <a href="/precios">PRECIOS</a>
+            <a href="/blog">BLOG</a>
             <a href="#">CONTACTO</a>
         </nav>
     </header>
 
     {% block body %}
     {% endblock %}
+        <script src="/js/header.js" defer></script>
 
     {% block footer %}
     <footer>hello</footer>
