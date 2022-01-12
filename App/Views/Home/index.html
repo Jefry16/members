@@ -1,44 +1,9 @@
 {% extends "base.html" %}
-{% block stylesheet %} 
-<link rel="stylesheet" href="/css/index.css">
-<link rel="stylesheet" href="/css/services.css">
-{% endblock %}
-{% block title %}Inicio{% endblock %}
+
+{% block title %}Home{% endblock %}
 
 {% block body %}
 
-   {{ include('./theme/services.html') }}
+    <h1>Welcome</h1>
 
-   {{ include('./theme/about-me.html') }}
-    
-
-    
-    <a href="/sobre-mi"><button class="btn btn-brown about-me__btn">Más sobre mí</button></a>
-    
-    <div class="single-post mobile-container">
-        <div class="single-post__container">
-            <div class="single-post__img-container">
-                <a href="#" class="btn btn-white single-post__btn">LEER</a>
-                <img src="/img/post-img.jpg" alt="post">
-            </div>
-            <div class="single-post__content">
-                <h2 class="single-post__title">Título de entrada del blog</h2>
-               <em> <p class="single-post__description">Lorem ipsum dolor sit amet, consectetur adipisicing 
-                elit. Quo vitae corrupti voluptas veritatis ratione </p></em>
-            </div>
-        </div>
-    </div>
-    
-    <a href="/blog"><button class="btn btn-brown visit-blog-btn">Ir al blog <img src="/img/link-icon.svg" alt="link" style="display:inline; width:16px;"></button></a>
-    
-    <div  class="opinions">
-        <section class="opinions__container">
-        <article class="opinions__box">
-            <p class="opinions__name">Margarita Perez</p>
-            <img src="/img/4starts.svg" alt="votes" class="opinions__starts">
-            <em><p class="opinions__commet">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum molestias labore impedit laboriosam</p></em>
-        </article>
-        </section>
-    </div>
-   {{ include('./theme/contact.html') }}
 {% endblock %}

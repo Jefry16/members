@@ -3,7 +3,6 @@
 namespace App\Controllers;
 
 use \Core\View;
-use \App\Models\Post;
 
 /**
  * Home controller
@@ -20,8 +19,6 @@ class Home extends \Core\Controller
      */
     public function indexAction()
     {
-        Post::testData();
-
         View::renderTemplate('Home/index.html');
     }
 }
