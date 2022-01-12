@@ -114,7 +114,7 @@ class Router
             if (class_exists($controller)) {
                 $controller_object = new $controller($this->params);
 
-                $action = $this->params['action'];
+                $action = $this->params['action'] ?? 'index';
                 $action = $this->convertToCamelCase($action);
 
                 if (preg_match('/action$/i', $action) == 0) {

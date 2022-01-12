@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block body %}
+    {% if(user.errors is not empty) %}
+        <p>Errors</p>
+        <ul>
+            {% for item in user.errors %}
+                <li>{{item}}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    <h1>Sign up</h1>
+
+    <form action="/signup/create" method="post" >
+        <div>
+            <input type="text" name="username" placeholder="name" value="{{ user.username }}">
+        </div>
+        <div>
+            <input type="text" name="email" placeholder="email" value="{{ user.email }}">
+        </div>
+        <div>
+            <input type="password" name="password" placeholder="password" value="{{ user.password }}">
+        </div>
+        <input type="submit" value="Sign up">
+    </form>
+{% endblock %}
