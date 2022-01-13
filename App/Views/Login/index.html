@@ -3,19 +3,12 @@
 {% block title %}Home{% endblock %}
 
 {% block body %}
-    {% if(user.errors is not empty) %}
-        <p>Errors</p>
-        <ul>
-            {% for item in user.errors %}
-                <li>{{item}}</li>
-            {% endfor %}
-        </ul>
-    {% endif %}
+
     <h1>Login</h1>
 
     <form action="/login/create" method="post" >
         <div>
-            <input type="text" name="email" placeholder="email" value="{{ user.email }}">
+            <input type="text" name="email" placeholder="email" value="{{ email }}">
         </div>
         <div>
             <input type="password" name="password" placeholder="password" id="password">
