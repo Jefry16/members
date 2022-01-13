@@ -75,4 +75,12 @@ abstract class Controller
     {
         header('Location: http://' . $_SERVER['HTTP_HOST'] . $url, true, 303);
     }
+
+    protected function redirectIfNotRequestMethod($method, $url)
+    {
+        if($_SERVER['REQUEST_METHOD'] != $method){
+            $this->redirect($url);
+            exit;
+        }
+    }
 }
