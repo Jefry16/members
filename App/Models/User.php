@@ -91,7 +91,7 @@ class User extends \Core\Model
         }
     }
 
-    private function emailExist($email)
+    public static function emailExist($email)
     {
         $sql = "SELECT email from users WHERE email = :email";
         $db = static::getDB();
