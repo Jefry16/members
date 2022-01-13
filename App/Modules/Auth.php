@@ -2,7 +2,7 @@
 
 namespace App\Modules;
 
-
+use App\Models\User;
 
 /**
  * Ajax controller
@@ -17,6 +17,8 @@ class Auth
         $_SESSION['user_id'] = $user->id;
         
         session_regenerate_id(true);
+
+        Flashmessage::set('Welcome');
     }
 
     public static function logout()
@@ -37,11 +39,15 @@ class Auth
         session_destroy();
     }
 
-    public static function isLoggedIn()
+
+
+    public static function getCurrentLoggedInUser()
     {
+       if (isset($_SESSION['user_id'])) {
 
-        return isset($_SESSION['user_id']);
+        return User::findById($_SESSION['user_id']);
 
+       }
     }
 
     public static function setLastPage()

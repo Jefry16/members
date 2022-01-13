@@ -5,6 +5,7 @@ namespace App\Controllers;
 use \Core\View;
 use \App\Models\User;
 use \App\Modules\Auth;
+use App\Modules\Flashmessage;
 
 /**
  * Home controller
@@ -43,7 +44,12 @@ class Login extends \Core\Controller
     public function destroyAction()
     {
         Auth::logout();
-        
+        $this->redirect('/login/showLogOutMessage');
+    }
+
+    public function showLogOutMessageAction()
+    {
+        Flashmessage::set('See you soon');
         $this->redirect('/');
     }
 }

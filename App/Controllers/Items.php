@@ -10,12 +10,7 @@ class Items extends \Core\Controller
 
     public function indexAction()
     {
-        if (!Auth::isLoggedIn()) {
-
-            Auth::setLastPage();
-            
-            $this->redirect('/login');
-        }
+        $this->redirectIfNotLoggedInUser();
         echo 'You are auth';
     }
 

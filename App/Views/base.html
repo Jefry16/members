@@ -8,10 +8,16 @@
 
 </head>
 <body>
+
+    {% for m in flash_notification %}
+        <div>
+            {{ m }}
+        </div>
+    {% endfor %}
     <nav>
         <a href="/">Home</a>
 
-        {% if isUserLoggedIn %}
+        {% if currentUser %}
             <a href="/logout">Logout</a>
         {% else %}
             <a href="/login">Login</a>
