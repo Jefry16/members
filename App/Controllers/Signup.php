@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use \Core\View;
 use \App\Models\User;
+use \App\Modules\Auth;
 
 /**
  * Home controller
@@ -20,15 +21,22 @@ class Signup extends \Core\Controller
      */
     public function indexAction()
     {
+        $this->redirectWhenUserLoggedIn('/');
         View::renderTemplate('Signup/index.html');
     }
 
     public function createAction()
     {
+        $this->redirectIfNotRequestMethod('POST', '/');
+
         $user = new User($_POST);
-        if($user->save()){
+
+        if ($user->save()) {
+
             $this->redirect('/signup/success');
-        }else{
+            
+        } else {
+
             View::renderTemplate('Signup/index.html', ['user' => $user]);
         }
     }

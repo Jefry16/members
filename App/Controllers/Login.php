@@ -13,13 +13,12 @@ use \App\Modules\Auth;
  */
 class Login extends \Core\Controller
 {
-
    
     public function newAction()
     {
+        $this->redirectWhenUserLoggedIn('/');
         View::renderTemplate('Login/index.html');
     }
-
 
     public function createAction()
     {
@@ -28,9 +27,13 @@ class Login extends \Core\Controller
         $user = User::authenticate($_POST['email'], $_POST['password']);
 
        if ($user) {
+
            Auth::login($user);
-           $this->redirect('/');
+
+           $this->redirect(Auth::getLastPage());
+
        } else {
+
         View::renderTemplate('Login/index.html', [
             'email' => $_POST['email'],
         ]);
@@ -40,6 +43,7 @@ class Login extends \Core\Controller
     public function destroyAction()
     {
         Auth::logout();
+        
         $this->redirect('/');
     }
 }

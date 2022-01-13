@@ -13,7 +13,9 @@ class Auth
 {
     public static function login($user)
     {
+
         $_SESSION['user_id'] = $user->id;
+        
         session_regenerate_id(true);
     }
 
@@ -22,10 +24,14 @@ class Auth
         $_SESSION = array();
 
             if (ini_get("session.use_cookies")) {
-            $params = session_get_cookie_params();
-            setcookie(session_name(), '', time() - 42000,
-            $params["path"], $params["domain"],
-            $params["secure"], $params["httponly"]
+
+                $params = session_get_cookie_params();
+
+                setcookie(session_name(), '', time() - 42000,
+
+                $params["path"], $params["domain"],
+
+                $params["secure"], $params["httponly"]
             );
         }
         session_destroy();
@@ -33,7 +39,19 @@ class Auth
 
     public static function isLoggedIn()
     {
+
         return isset($_SESSION['user_id']);
+
+    }
+
+    public static function setLastPage()
+    {
+        $_SESSION['last_page'] = $_SERVER['REQUEST_URI'];
+    }
+
+    public static function getLastPage()
+    {
+        return $_SESSION['last_page'] ?? '/';
     }
 
 }

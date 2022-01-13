@@ -56,37 +56,47 @@ class User extends \Core\Model
 
     private function validateUsername($username)
     {
-        if($username == ''){
+        if ($username == '') {
+
             $this->errors[] = 'Name is required';
+            
         }
     }
 
 
     private function validateEmail($email)
     {
-        if($email == ''){
+        if ($email == '') {
+
             $this->errors[] = 'Email is required';
+            
             return;
         }
 
-        if(filter_var($this->email, FILTER_VALIDATE_EMAIL) === false){
+        if (filter_var($this->email, FILTER_VALIDATE_EMAIL) === false) {
+
             $this->errors[] = 'Email is invalid';
+           
             return;
         }
 
-        if($this->emailExist($email)) {
+        if ($this->emailExist($email)) {
+
             $this->errors[] = 'Email is in used already';
         }
     }
 
     private function validatePassword($password)
     {
-        if($password == ''){
+        if ($password == '') {
+
             $this->errors[] = 'Password is required';
+            
             return;
         }
 
-        if(strlen($password) < 6){
+        if (strlen($password) < 6) {
+
             $this->errors[] = 'Password length must be 6 caracters at least';
         }
     }
@@ -112,9 +122,13 @@ class User extends \Core\Model
     public static function authenticate($email, $password)
     {
         $user = static::findByEmail($email);
-        if($user && password_verify($password, $user->password)){
+
+        if ($user && password_verify($password, $user->password)) {
+            
             return $user;
+
         }
+
         return false;
     }
 }
