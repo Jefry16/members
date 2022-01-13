@@ -93,14 +93,18 @@ class User extends \Core\Model
 
     public static function emailExist($email)
     {
-        $sql = "SELECT email from users WHERE email = :email";
+        return static::findByEmail($email) !== false;
+    }
+
+    public static function findByEmail($email)
+    {
+        $sql = "SELECT email, password from users WHERE email = :email";
         $db = static::getDB();
         $stmt = $db->prepare($sql);
 
         $stmt->bindValue(':email', $email, PDO::PARAM_STR);
         $stmt->execute();
 
-        return $stmt->fetch() !== false;
-
+        return $stmt->fetch();
     }
 }
