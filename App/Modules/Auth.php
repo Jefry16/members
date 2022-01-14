@@ -2,6 +2,7 @@
 
 namespace App\Modules;
 
+use App\Models\Login;
 use App\Models\User;
 
 /**
@@ -11,12 +12,19 @@ use App\Models\User;
  */
 class Auth 
 {
-    public static function login($user)
+    public static function login($user, $rememberLogin)
     {
 
         $_SESSION['user_id'] = $user->id;
         
         session_regenerate_id(true);
+
+        if ($rememberLogin) {
+
+            if ($user->rememberLogin()) {
+                setcookie('remember_me', $user->token_value, $user->expiry_timestamp, '/');
+            };
+        }
 
         Flashmessage::set('Welcome');
     }
@@ -47,6 +55,16 @@ class Auth
 
         return User::findById($_SESSION['user_id']);
 
+       } else {
+
+           $cookie_for_login = $_COOKIE['remember_me'] ?? false;
+           
+           $login_data = Login::getLoginFronCookie($cookie_for_login);
+
+           if($login_data) {
+               
+               $_SESSION['user_id'] = $login_data->user_id;
+           }
        }
     }
 

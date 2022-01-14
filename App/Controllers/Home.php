@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Modules\Token;
 use \Core\View;
 
 /**
@@ -19,6 +20,10 @@ class Home extends \Core\Controller
      */
     public function indexAction()
     {
+
+
+            
+        
         View::renderTemplate('Home/index.html');
     }
 }

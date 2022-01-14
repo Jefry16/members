@@ -4,18 +4,19 @@
     <meta charset="UTF-8">
     <title>{% block title %}{% endblock %}</title>
     <script src="/js/global.js" defer></script>
-    
+    <link rel="stylesheet" href="/css/global.css">
 
 </head>
 <body>
 
     {% for m in flash_notification %}
-        <div>
-            {{ m }}
+        <div class="alert {{ m.type }}">
+            {{ m.message }}
         </div>
     {% endfor %}
     <nav>
         <a href="/">Home</a>
+        <a href="/items">Item</a>
 
         {% if currentUser %}
             <a href="/logout">Logout</a>

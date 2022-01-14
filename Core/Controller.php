@@ -98,7 +98,7 @@ abstract class Controller
         if (!Auth::getCurrentLoggedInUser()) {
 
             Auth::setLastPage();
-            Flashmessage::set('You need to log in to view this page');
+            Flashmessage::set('You need to log in to view this page', Flashmessage::INFO);
             $this->redirect('/login');
 
             exit;

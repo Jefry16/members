@@ -1,0 +1,16 @@
+.alert{
+    border: solid 1px black;
+    padding: 5px;
+}
+
+.success{
+    background-color: lightgreen;
+}
+
+.info{
+    background-color: lightyellow;
+}
+
+.fail{
+    background-color: lightcoral;
+}

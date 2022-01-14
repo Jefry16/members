@@ -27,18 +27,22 @@ class Login extends \Core\Controller
 
         $user = User::authenticate($_POST['email'], $_POST['password']);
 
-       if ($user) {
+        $rememberMe = isset($_POST['remember_me']);
+        
+        if ($user) {
 
-           Auth::login($user);
+           Auth::login($user, $rememberMe);
 
            $this->redirect(Auth::getLastPage());
 
-       } else {
-
-        View::renderTemplate('Login/index.html', [
+        } else {
+            Flashmessage::set('Wrong credentials', Flashmessage::FAIL);
+            
+            View::renderTemplate('Login/index.html', [
             'email' => $_POST['email'],
-        ]);
-       }
+            'remember_me' => $rememberMe
+            ]);
+        }
     }
 
     public function destroyAction()

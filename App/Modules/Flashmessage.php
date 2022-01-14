@@ -11,13 +11,19 @@ use App\Models\User;
  */
 class Flashmessage 
 {
+    const SUCCESS = "success";
+    const INFO = "info";
+    const FAIL = "fail";
 
-    public static function set($message) 
+    public static function set($message, $type ="success") 
     {
         if ( !isset($_SESSION['flash_notification']) ) {
             $_SESSION['flash_notification'] = [];
         }
-        $_SESSION['flash_notification'][] = $message;
+        $_SESSION['flash_notification'][] = [
+            'message' => $message,
+            'type' => $type
+        ];
     }
 
     public static function get()

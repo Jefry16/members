@@ -14,6 +14,11 @@
             <input type="password" name="password" placeholder="password" id="password">
             <button type="button" id="passwordBtn">ver</button>
         </div>
+        <div>
+            <label >
+                <input type="checkbox" name="remember_me" {% if remember_me %} checked {% endif %}>  Remember me
+            </label>
+        </div>
         <input type="submit" value="Log in">
     </form>
 
