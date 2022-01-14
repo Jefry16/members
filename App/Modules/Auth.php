@@ -45,6 +45,9 @@ class Auth
             );
         }
         session_destroy();
+
+        static::deleteLogin();
+
     }
 
     public static function getCurrentLoggedInUser()
@@ -56,7 +59,7 @@ class Auth
 
             $login_data = Login::getLoginFronCookie($cookie_for_login);
 
-            if ($login_data) {
+            if (is_object($login_data) && strtotime($login_data->expires_at) > time()) {
                 $_SESSION['user_id'] = $login_data->user_id;
             }
         }
@@ -70,5 +73,14 @@ class Auth
     public static function getLastPage()
     {
         return $_SESSION['last_page'] ?? '/';
+    }
+
+    public static function deleteLogin()
+    {
+        $auth_cookie = $_COOKIE['remember_me'] ?? false;
+        if ($auth_cookie) {
+            Login::deleteLoginFromCookie($auth_cookie);
+            setcookie('remember_me', '', time() - 3600);
+        }
     }
 }

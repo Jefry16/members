@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Models\Login as ModelsLogin;
 use \Core\View;
 use \App\Models\User;
 use \App\Modules\Auth;
@@ -14,7 +15,6 @@ use App\Modules\Flashmessage;
  */
 class Login extends \Core\Controller
 {
-   
     public function newAction()
     {
         $this->redirectWhenUserLoggedIn('/');
@@ -28,19 +28,17 @@ class Login extends \Core\Controller
         $user = User::authenticate($_POST['email'], $_POST['password']);
 
         $rememberMe = isset($_POST['remember_me']);
-        
+
         if ($user) {
+            Auth::login($user, $rememberMe);
 
-           Auth::login($user, $rememberMe);
-
-           $this->redirect(Auth::getLastPage());
-
+            $this->redirect(Auth::getLastPage());
         } else {
             Flashmessage::set('Wrong credentials', Flashmessage::FAIL);
-            
+
             View::renderTemplate('Login/index.html', [
-            'email' => $_POST['email'],
-            'remember_me' => $rememberMe
+                'email' => $_POST['email'],
+                'remember_me' => $rememberMe
             ]);
         }
     }
@@ -48,6 +46,7 @@ class Login extends \Core\Controller
     public function destroyAction()
     {
         Auth::logout();
+
         $this->redirect('/login/showLogOutMessage');
     }
 

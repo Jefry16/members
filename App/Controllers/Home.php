@@ -1,8 +1,8 @@
 <?php
 
+
 namespace App\Controllers;
 
-use App\Modules\Token;
 use \Core\View;
 
 /**
