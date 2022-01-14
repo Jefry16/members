@@ -12,7 +12,6 @@ use App\Modules\Token;
  */
 class User extends \Core\Model
 {
-
     public $errors = [];
 
     public function __construct($data = [])
@@ -26,9 +25,9 @@ class User extends \Core\Model
     {
         $this->validate($this->username, $this->email, $this->password);
 
-        if(empty($this->errors)){
+        if (empty($this->errors)) {
             $password_hashed = password_hash($this->password, PASSWORD_DEFAULT);
-            $sql = "INSERT INTO users (username, email, password) VALUES(:username, :email, :password)";
+            $sql = 'INSERT INTO users (username, email, password) VALUES(:username, :email, :password)';
             $db = static::getDB();
             $stmt = $db->prepare($sql);
 
@@ -40,7 +39,7 @@ class User extends \Core\Model
         }
         return false;
     }
-    
+
     public static function getAll()
     {
         $db = static::getDB();
@@ -58,31 +57,25 @@ class User extends \Core\Model
     private function validateUsername($username)
     {
         if ($username == '') {
-
             $this->errors[] = 'Name is required';
-            
         }
     }
-
 
     private function validateEmail($email)
     {
         if ($email == '') {
-
             $this->errors[] = 'Email is required';
-            
+
             return;
         }
 
         if (filter_var($this->email, FILTER_VALIDATE_EMAIL) === false) {
-
             $this->errors[] = 'Email is invalid';
-           
+
             return;
         }
 
         if ($this->emailExist($email)) {
-
             $this->errors[] = 'Email is in used already';
         }
     }
@@ -90,14 +83,12 @@ class User extends \Core\Model
     private function validatePassword($password)
     {
         if ($password == '') {
-
             $this->errors[] = 'Password is required';
-            
+
             return;
         }
 
         if (strlen($password) < 6) {
-
             $this->errors[] = 'Password length must be 6 caracters at least';
         }
     }
@@ -109,7 +100,7 @@ class User extends \Core\Model
 
     public static function findByEmail($email)
     {
-        $sql = "SELECT email, password, id from users WHERE email = :email";
+        $sql = 'SELECT email, password, id from users WHERE email = :email';
         $db = static::getDB();
         $stmt = $db->prepare($sql);
 
@@ -125,9 +116,7 @@ class User extends \Core\Model
         $user = static::findByEmail($email);
 
         if ($user && password_verify($password, $user->password)) {
-            
             return $user;
-
         }
 
         return false;
@@ -135,7 +124,7 @@ class User extends \Core\Model
 
     public static function findById($id)
     {
-        $sql = "SELECT username from users WHERE id = :id";
+        $sql = 'SELECT username from users WHERE id = :id';
         $db = static::getDB();
         $stmt = $db->prepare($sql);
 
@@ -153,7 +142,7 @@ class User extends \Core\Model
 
         $this->expiry_timestamp = time() + 60 * 60 * 24 * 30;  // 30 days from now
         $this->token_value = $token->getValue();
-        
+
         $sql = 'INSERT INTO remembered_logins (token_hash, user_id, expires_at)
                 VALUES (:token_hash, :user_id, :expires_at)';
 
