@@ -99,7 +99,8 @@ abstract class Controller
 
             Auth::setLastPage();
             Flashmessage::set('You need to log in to view this page', Flashmessage::INFO);
-            $this->redirect('/login');
+            $this->redirect('/ccb/admin/login');
+
 
             exit;
         }

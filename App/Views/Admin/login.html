@@ -1,12 +1,12 @@
-{% extends "base.html" %}
+{% extends "base-admin.html" %}
 
-{% block title %}Home{% endblock %}
+{% block title %}Iniciar sesión{% endblock %}
 
 {% block body %}
 
-    <h1>Login</h1>
+    <h1>Inicia sesión</h1>
 
-    <form action="/login/create" method="post" >
+    <form action="/ccb/admin/login/create" method="post" >
         <div>
             <input type="text" name="email" placeholder="email" value="{{ email }}">
         </div>
@@ -16,7 +16,7 @@
         </div>
         <div>
             <label >
-                <input type="checkbox" name="remember_me" {% if remember_me %} checked {% endif %}>  Remember me
+                <input type="checkbox" name="remember_me" {% if remember_me %} checked {% endif %}>Recuérdame
             </label>
         </div>
         <input type="submit" value="Log in">

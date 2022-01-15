@@ -1,8 +1,7 @@
 <?php
 
-namespace App\Controllers;
+namespace App\Controllers\Admin;
 
-use App\Models\Login as ModelsLogin;
 use \Core\View;
 use \App\Models\User;
 use \App\Modules\Auth;
@@ -15,10 +14,10 @@ use App\Modules\Flashmessage;
  */
 class Login extends \Core\Controller
 {
-    public function newAction()
+    public function indexAction()
     {
-        $this->redirectWhenUserLoggedIn('/');
-        View::renderTemplate('Login/index.html');
+        $this->redirectWhenUserLoggedIn('/ccb/admin/inicio');
+        View::renderTemplate('Admin/login.html');
     }
 
     public function createAction()
@@ -32,11 +31,11 @@ class Login extends \Core\Controller
         if ($user) {
             Auth::login($user, $rememberMe);
 
-            $this->redirect(Auth::getLastPage());
+            $this->redirect(Auth::getLastPageAdmin());
         } else {
             Flashmessage::set('Wrong credentials', Flashmessage::FAIL);
 
-            View::renderTemplate('Login/index.html', [
+            View::renderTemplate('Admin/login.html', [
                 'email' => $_POST['email'],
                 'remember_me' => $rememberMe
             ]);

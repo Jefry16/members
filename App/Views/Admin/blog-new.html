@@ -1,0 +1,45 @@
+{% extends "base-admin.html" %}
+
+{% block title %}Blog{% endblock %}
+
+{% block body %}
+    <form action="/ccb/admin/blog/save" method="post">
+        <div>
+            <button type="button">Añadir portada</button>
+        </div>
+
+        <input type="hidden" name="thumbnail" value="xs">
+
+        <div>
+            <input type="text" name="title" placeholder="Titulo">
+        </div>
+        
+        <div>
+            <textarea name="content" placeholder="Contenido" id="summernote"></textarea>
+        </div>
+
+        <div>
+            <select name="category">
+                <option value="1">Felicidad</option>
+            </select>
+        </div>
+
+        <div>
+            <select name="status">
+                <option value="1">Publico</option>
+            </select>
+        </div>
+
+         <div>
+            <textarea name="tags" placeholder="Etiquetas"></textarea>
+        </div>
+        
+        <div>
+            <input type="submit" value="Publicar">
+        </div>
+    </form>
+
+    <script>
+
+    </script>
+{% endblock %}

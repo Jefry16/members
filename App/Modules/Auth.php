@@ -75,6 +75,11 @@ class Auth
         return $_SESSION['last_page'] ?? '/';
     }
 
+    public static function getLastPageAdmin()
+    {
+        return $_SESSION['last_page'] ?? '/ccb/admin/inicio';
+    }
+
     public static function deleteLogin()
     {
         $auth_cookie = $_COOKIE['remember_me'] ?? false;

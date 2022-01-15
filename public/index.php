@@ -27,10 +27,16 @@ $router = new Core\Router();
 
 // Add the routes
 $router->add('', ['controller' => 'Home', 'action' => 'index']);
+$router->add('upload-img', ['controller' => 'Test', 'action' => 'index']);
+
 $router->add('login', ['controller' => 'Login', 'action' => 'new']);
 $router->add('logout', ['controller' => 'Login', 'action' => 'destroy']);
 $router->add('{controller}');
 $router->add('{controller}/{action}');
+
+//Admin routes
+$router->add('ccb/admin/{controller}', ['namespace' => 'Admin']);
+$router->add('ccb/admin/{controller}/{action}', ['namespace' => 'Admin']);
 
     
 $router->dispatch($_SERVER['QUERY_STRING']);
