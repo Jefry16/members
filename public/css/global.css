@@ -1,16 +1,22 @@
-.alert{
-    border: solid 1px black;
-    padding: 5px;
+form{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
-.success{
-    background-color: lightgreen;
+.formc{
+    height: 100vh;
+    padding: 30px 100px;
 }
 
-.info{
-    background-color: lightyellow;
+.tags, input[type="text"]{
+    
+        display: block;
+        width: 100%;
+        height: 35px;
+    
 }
 
-.fail{
-    background-color: lightcoral;
+.tags{
+    height: 100px;
 }

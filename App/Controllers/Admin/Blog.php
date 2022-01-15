@@ -34,6 +34,7 @@ class Blog extends \Core\Controller
     {
         $post = new Post($_POST);
 
-        var_dump($post);
+        $post->save();
+
     }
 }
