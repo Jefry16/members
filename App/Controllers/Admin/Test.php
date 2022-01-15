@@ -11,13 +11,10 @@ use \Core\View;
  */
 class Test extends \Core\Controller
 {
-    protected function before()
-    {
-        //Make sure an admin is logged in
-        $this->redirectIfNotLoggedInUser();
-    }
+    
 
     public function indexAction()
     {
+      
     }
 }

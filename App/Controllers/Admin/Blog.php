@@ -33,7 +33,7 @@ class Blog extends \Core\Controller
     public function saveAction()
     {
         $post = new Post($_POST);
-        $post->save();
+
         var_dump($post);
     }
 }

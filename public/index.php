@@ -27,7 +27,8 @@ $router = new Core\Router();
 
 // Add the routes
 $router->add('', ['controller' => 'Home', 'action' => 'index']);
-$router->add('upload-img', ['controller' => 'Test', 'action' => 'index']);
+$router->add('test', ['controller' => 'Test', 'action' => 'index', 'namespace' => 'Admin']);
+
 
 $router->add('login', ['controller' => 'Login', 'action' => 'new']);
 $router->add('logout', ['controller' => 'Login', 'action' => 'destroy']);
