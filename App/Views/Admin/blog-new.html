@@ -3,18 +3,25 @@
 {% block title %}Blog{% endblock %}
 
 {% block body %}
+<div class="ajax-images">
+    <div class="images-holder"></div>
+</div>
    <h1>Nueva entrada</h1>
      <div class=" formc">
             <form action="/ccb/admin/blog/save" method="post">
 
 
-            <input type="hidden" name="thumbnail" value="xs">
+            <input type="hidden" name="thumbnail" value="">
             
             <div>
                 <input type="text" name="title" placeholder="Titulo">
             </div>
+
+            <div id="title-holder">
+            </div>
+            
             <div>
-                <button type="button">Añadir portada</button>
+                <button type="button" id="addThumb">Añadir portada</button>
             </div>
             <div>
                 <textarea name="content" placeholder="Contenido" id="p"></textarea>
@@ -23,19 +30,22 @@
             <div>
                 <label>Categoría
                     <select name="category">
-                    <option value="1">Felicidad</option>
+                    {% for c in categories %}
+                        <option value="{{ c.id }}">{{ c.name }}</option>
+                    {% endfor %}
                 </select>
                 </label>
             </div>
 
             <div>
-                <textarea name="tags" placeholder="Etiquetas" class="tags"></textarea>
+                <textarea name="tags" placeholder="Etiquetas" class="tags" ></textarea>
             </div>
 
             <div>
                 <label>Estado
                     <select name="status">
-                    <option value="1">Publico</option>
+                    <option value="1">Público</option>
+                    <option value="0">Privado</option>
                     </select>
                 </label>
             </div>
@@ -51,10 +61,10 @@
     <script>
         tinymce.init({
         selector: "#p",
-        plugins: "wordcount code link emoticons textcolor table",
+        plugins: "wordcount code link emoticons textcolor table image imagetools",
 
-        toolbar: "wordcount undo redo emoticons | bold italic underline strikethrough formatselect | table forecolor backcolor  | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link code image_upload",
-        menubar:false,
+        toolbar: "wordcount undo redo emoticons | bold italic underline strikethrough formatselect | table forecolor backcolor  | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link code image_upload image",
+        menubar:'insert',
         statusbar: true,
         content_style: ".mce-content-body {font-size:15px;font-family:Arial,sans-serif;}",
         height: 400,
@@ -105,5 +115,6 @@
             }
         });
 </script>
+<script src="/js/admin/new-blog.js"></script>
 
 {% endblock %}

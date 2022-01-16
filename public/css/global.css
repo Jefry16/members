@@ -20,3 +20,7 @@ form{
 .tags{
     height: 100px;
 }
+
+#title-holder img {
+    max-width: 500px;
+}

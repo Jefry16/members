@@ -7,9 +7,20 @@
     <a href="/ccb/admin/blog/nuevo">Nuevo</a>
     <h2>Entradas</h2>
     <ul>
-        {% for post in posts %}
-            <li>{{ post.title }}</li>
+        {% for p in posts %}
+            <li>{{ p.title }}</li>
         {% endfor %}
     </ul>
     <h2>Categorías</h2>
+    <form action="/ccb/admin/blog/add-category" method="post">
+        <div>
+            <input type="text" name="name" placeholder="Añadir nueva categoría">
+        </div>
+        <input type="submit" value="Añadir">
+    </form>
+    <ul>
+        {% for c in categories %}
+            <li>{{ c.name }}</li>
+        {% endfor %}
+    </ul>
 {% endblock %}
