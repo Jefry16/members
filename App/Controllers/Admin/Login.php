@@ -47,7 +47,8 @@ class Login extends \Core\Controller
     {
         Auth::logout();
 
-        $this->redirect('/login/showLogOutMessage');
+        $this->redirect('/ccb/admin/login/showLogOutMessage');
+
     }
 
     public function showLogOutMessageAction()

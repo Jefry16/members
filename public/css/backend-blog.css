@@ -1,7 +1,12 @@
 .backend-navigation{
     display: flex;
-    padding: 2rem 15rem;
+    padding: 2rem 35rem;
     justify-content: space-around;
+}
+
+.backend-navigation a {
+    font-size: 22px;
+    color: black;
 }
 
 .actions{
@@ -11,5 +16,4 @@
 
 .actions a {
     color: rgb(0, 0, 0);
-
 }
