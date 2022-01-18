@@ -28,6 +28,9 @@ class Blog extends \Core\Controller
             'posts' => Post::getAll(),
             'categories' => Category::getAll()
         ]);
+
+        var_dump(Post::getAll());
+
     }
 
     public function nuevoAction()

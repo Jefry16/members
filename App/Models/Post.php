@@ -43,7 +43,8 @@ class Post extends \Core\Model
     public static function getAll()
     {
         $db = static::getDB();
-        $stmt = $db->query('SELECT id, title FROM post');
+        $stmt = $db->query('SELECT post.id, title, post.created_at, name, status, category FROM post INNER JOIN category ON post.id = category.id');
+
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 

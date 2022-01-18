@@ -33,7 +33,8 @@ class Login extends \Core\Controller
 
             $this->redirect(Auth::getLastPageAdmin());
         } else {
-            Flashmessage::set('Wrong credentials', Flashmessage::FAIL);
+            Flashmessage::set('Usuario y/o contraseña incorrectos', Flashmessage::FAIL);
+
 
             View::renderTemplate('Admin/login.html', [
                 'email' => $_POST['email'],

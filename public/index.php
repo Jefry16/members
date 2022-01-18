@@ -27,7 +27,7 @@ $router = new Core\Router();
 
 // Add the routes
 $router->add('', ['controller' => 'Home', 'action' => 'index']);
-$router->add('test', ['controller' => 'Test', 'action' => 'index', 'namespace' => 'Admin']);
+
 $router->add('ccb/admin', ['controller' => 'Inicio', 'action' => 'index', 'namespace' => 'Admin']);
 
 

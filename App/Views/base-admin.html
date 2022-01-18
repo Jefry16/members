@@ -12,6 +12,7 @@
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="/css/global.css">
     <link rel="stylesheet" href="/css/new-blog.css">
+    <link rel="stylesheet" href="/css/backend-blog.css">
 
 </head>
 <body>
@@ -22,7 +23,9 @@
         </div>
     {% endfor %}
 
-    <a href="/ccb/admin/inicio">Inicio</a> | <a href="/ccb/admin/blog">Blog</a> | <a href="/ccb/admin/citas">Citas</a> | <a href="/ccb/admin/precios">Precios</a> | <a href="/ccb/admin/banner">Banner</a>
+    <div class="backend-navigation">
+        <a href="/ccb/admin/inicio">Inicio</a> | <a href="/ccb/admin/blog">Blog</a> | <a href="/ccb/admin/citas">Citas</a> | <a href="/ccb/admin/precios">Precios</a> | <a href="/ccb/admin/banner">Banner</a>
+    </div>
 
     {% block body %}
     {% endblock %}

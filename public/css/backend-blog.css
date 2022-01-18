@@ -1,0 +1,15 @@
+.backend-navigation{
+    display: flex;
+    padding: 2rem 15rem;
+    justify-content: space-around;
+}
+
+.actions{
+    display: flex;
+    justify-content: space-between;
+}
+
+.actions a {
+    color: rgb(0, 0, 0);
+
+}

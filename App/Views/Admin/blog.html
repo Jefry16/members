@@ -3,24 +3,64 @@
 {% block title %}Blog{% endblock %}
 
 {% block body %}
-    <h1>Blog</h1>
-    <a href="/ccb/admin/blog/nuevo">Nuevo</a>
+    
+   <div class="container">
+    <a class ="btn" href="/ccb/admin/blog/nuevo">¡A escribir!</a>
     <h2>Entradas</h2>
-    <ul>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Título</th>
+                <th>Fecha</th>
+                <th>Categoría</th>
+                <th>Estado</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
         {% for p in posts %}
-            <li>{{ p.title }}</li>
+            <tr>
+                <td>
+                    {{ p.title|slice(0, 40) }}...
+                </td>
+                <td>
+                    {{ p.created_at }}
+                </td>
+                <td>
+                    {{ p.name }}
+                </td>
+                <td>
+                    {% if p.status == 1 %}
+                        <span style="color: rgb(74 149 103);">Público</span>
+                        {% else %}
+                        <span style="color: rgb(225 140 11);">Borrador</span>
+                    {% endif %}
+                </td>
+                <td>
+                    <div class="actions">
+                        <a class="btn" href="">Editar</a>
+                        <a class="btn" href="">Ver</a>
+                        <a class="btn" href="">Eliminar</a>
+                    </div>
+                </td>
+            </tr>
         {% endfor %}
+        </tbody>
+    </table>
+    <ul>
+
     </ul>
     <h2>Categorías</h2>
     <form action="/ccb/admin/blog/add-category" method="post">
         <div>
             <input type="text" name="name" placeholder="Añadir nueva categoría">
         </div>
-        <input type="submit" value="Añadir">
+        <input class="btn" type="submit" value="Añadir">
     </form>
     <ul>
         {% for c in categories %}
             <li>{{ c.name }}</li>
         {% endfor %}
     </ul>
+   </div>
 {% endblock %}

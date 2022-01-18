@@ -10,4 +10,3 @@ function togglePasswordField(field) {
 }
 
 
-document.addEventListener("load", console.log("finished loading"));
