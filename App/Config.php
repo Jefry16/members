@@ -20,8 +20,7 @@ class Config
      * Database name
      * @var string
      */
-    const DB_NAME = 'carolinacano';
-
+    const DB_NAME = 'mvc';
 
     /**
      * Database user
@@ -42,6 +41,5 @@ class Config
     const SHOW_ERRORS = true;
 
 
-    const SECRET_KEY = '73bV6ErLxBEwJs8kNPm4mg0BSq6uw117';
-
+    const SECRET_KEY = '';
 }

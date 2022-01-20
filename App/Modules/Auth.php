@@ -14,7 +14,8 @@ class Auth
 {
     public static function login($user, $rememberLogin)
     {
-        $_SESSION['user_id'] = $user->id;
+        $_SESSION['admin_id'] = $user->id;
+
 
         session_regenerate_id(true);
 
@@ -50,17 +51,18 @@ class Auth
 
     }
 
-    public static function getCurrentLoggedInUser()
+    public static function getCurrentLoggedInUser($userType)
     {
-        if (isset($_SESSION['user_id'])) {
-            return User::findById($_SESSION['user_id']);
+        if (isset($_SESSION[$userType])) {
+            return User::findById($_SESSION[$userType]);
         } else {
             $cookie_for_login = $_COOKIE['remember_me'] ?? false;
 
             $login_data = Login::getLoginFronCookie($cookie_for_login);
 
             if (is_object($login_data) && strtotime($login_data->expires_at) > time()) {
-                $_SESSION['user_id'] = $login_data->user_id;
+                $_SESSION[$userType] = $login_data->user_id;
+
             }
         }
     }
@@ -73,11 +75,6 @@ class Auth
     public static function getLastPage()
     {
         return $_SESSION['last_page'] ?? '/';
-    }
-
-    public static function getLastPageAdmin()
-    {
-        return $_SESSION['last_page'] ?? '/ccb/admin/inicio';
     }
 
     public static function deleteLogin()

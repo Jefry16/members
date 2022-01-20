@@ -1,12 +1,18 @@
 "use strict";
 console.log("global js");
 
-function togglePasswordField(field) {
-  if (field.getAttribute("type") == "password") {
-    field.setAttribute("type", "text");
-    return;
+window.location.href.split("/")[3];
+
+console.log();
+
+document.querySelectorAll(".navbar-nav > li").forEach((li) => {
+  if (window.location.pathname != "/") {
+    li.classList.remove("active");
   }
-  field.setAttribute("type", "password");
-}
-
-
+  if (
+    window.location.pathname ==
+    "/" + li.firstChild.textContent.toLowerCase()
+  ) {
+    li.classList.add("active");
+  }
+});

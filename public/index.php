@@ -25,22 +25,17 @@ session_start();
  */
 $router = new Core\Router();
 
-// Add the routes
-$router->add('', ['controller' => 'Home', 'action' => 'index']);
+// specifics routes
 
-$router->add('ccb/admin', ['controller' => 'Inicio', 'action' => 'index', 'namespace' => 'Admin']);
+$router->add('', ['controller' => 'Home', 'action' => 'index', 'namespace' => 'Backoffice']);
+$router->add('about', ['controller' => 'Statico', 'action' => 'about', 'namespace' => 'Frontend']);
+$router->add('contact', ['controller' => 'Statico', 'action' => 'contact', 'namespace' => 'Frontend']);
+$router->add('register', ['controller' => 'Statico', 'action' => 'register', 'namespace' => 'Frontend']);
 
+//frontend routes
 
-$router->add('login', ['controller' => 'Login', 'action' => 'new']);
-$router->add('logout', ['controller' => 'Login', 'action' => 'destroy']);
-$router->add('{controller}');
-$router->add('{controller}/{action}');
+//backend routes
 
-//Admin routes
-
-
-$router->add('ccb/admin/{controller}', ['namespace' => 'Admin']);
-$router->add('ccb/admin/{controller}/{action}', ['namespace' => 'Admin']);
 
     
 $router->dispatch($_SERVER['QUERY_STRING']);

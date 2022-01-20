@@ -93,22 +93,21 @@ abstract class Controller
         }
     }
 
-    protected function redirectIfNotLoggedInUser()
+    protected function redirectIfNotLoggedInAdmin()
     {
-        if (!Auth::getCurrentLoggedInUser()) {
+        if (!Auth::getCurrentLoggedInAdmin()) {
 
             Auth::setLastPage();
             Flashmessage::set('You need to log in to view this page', Flashmessage::INFO);
-            $this->redirect('/ccb/admin/login');
-
+            $this->redirect('/login');
 
             exit;
         }
     }
 
-    protected function redirectWhenUserLoggedIn($url = '/')
+    protected function redirectWhenAdminLoggedIn($url = '/')
     {
-        if (isset($_SESSION['user_id'])) {
+        if (isset($_SESSION['admin_id'])) {
 
             header('Location: http://' . $_SERVER['HTTP_HOST'] . $url, true, 303);
 

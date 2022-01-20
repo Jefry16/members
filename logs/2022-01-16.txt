@@ -1,9 +1,0 @@
-[16-Jan-2022 16:38:44 Europe/Berlin] Uncaught exception: 'Exception' with message 'No route matched.'
-Stack trace: #0 /opt/lampp/htdocs/public/index.php(46): Core\Router->dispatch('ccb/admin/blog/...')
-#1 {main}
-Thrown in '/opt/lampp/htdocs/Core/Router.php' on line 130
-[16-Jan-2022 19:47:14 Europe/Berlin] Uncaught exception: 'Exception' with message 'Method fxdfxdfzfAction not found in controller App\Controllers\Admin\Blog'
-Stack trace: #0 /opt/lampp/htdocs/Core/Router.php(121): Core\Controller->__call('fxdfxdfzf', Array)
-#1 /opt/lampp/htdocs/public/index.php(46): Core\Router->dispatch('ccb/admin/blog/...')
-#2 {main}
-Thrown in '/opt/lampp/htdocs/Core/Controller.php' on line 58

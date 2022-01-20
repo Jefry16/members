@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <title>{% block title %}{% endblock %}</title>
     <script src="/js/global.js" defer></script>
+    <link rel="stylesheet" href="/css/normalize.css">
     <link rel="stylesheet" href="/css/global.css">
-    
+
 </head>
 <body>
 
@@ -16,7 +17,6 @@
     {% endfor %}
     <nav>
         <a href="/">Home</a>
-        <a href="/items">Item</a>
 
         {% if currentUser %}
             <a href="/logout">Logout</a>
