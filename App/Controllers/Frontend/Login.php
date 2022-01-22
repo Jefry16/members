@@ -2,6 +2,7 @@
 
 namespace App\Controllers\Frontend;
 
+use App\Config;
 use App\Models\Login as ModelsLogin;
 use \Core\View;
 use \App\Models\User;
@@ -15,30 +16,25 @@ use App\Modules\Flashmessage;
  */
 class Login extends \Core\Controller
 {
-    public function newAction()
-    {
-        $this->redirectWhenUserLoggedIn('/');
-        View::renderTemplate('Login/index.html');
-    }
 
     public function createAction()
     {
+
         $this->redirectIfNotRequestMethod('POST', '/');
 
         $user = User::authenticate($_POST['email'], $_POST['password']);
-
-        $rememberMe = isset($_POST['remember_me']);
+        $rememberMe = isset($_POST['rememberMe']);
 
         if ($user) {
-            Auth::login($user, $rememberMe);
+            Auth::login($user, $rememberMe, Config::$member_id);
 
             $this->redirect(Auth::getLastPage());
         } else {
             Flashmessage::set('Wrong credentials', Flashmessage::FAIL);
 
-            View::renderTemplate('Login/index.html', [
+            View::renderTemplate('Frontend/Statico/login.html', [
                 'email' => $_POST['email'],
-                'remember_me' => $rememberMe
+                'rememberMe' => $rememberMe
             ]);
         }
     }
@@ -46,8 +42,7 @@ class Login extends \Core\Controller
     public function destroyAction()
     {
         Auth::logout();
-
-        $this->redirect('/login/showLogOutMessage');
+        $this->redirect('/login/show-log-out-message');
     }
 
     public function showLogOutMessageAction()

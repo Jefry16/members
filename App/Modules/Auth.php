@@ -12,9 +12,10 @@ use App\Models\User;
  */
 class Auth
 {
-    public static function login($user, $rememberLogin)
+    public static function login($user, $rememberLogin, $userType)
     {
-        $_SESSION['admin_id'] = $user->id;
+        $_SESSION[$userType] = $user->id;
+
 
 
         session_regenerate_id(true);
@@ -24,8 +25,8 @@ class Auth
                 setcookie('remember_me', $user->token_value, $user->expiry_timestamp, '/');
             };
         }
+        Flashmessage::set('Welcome back!', Flashmessage::SUCCESS);
 
-        Flashmessage::set('Welcome');
     }
 
     public static function logout()
@@ -82,7 +83,8 @@ class Auth
         $auth_cookie = $_COOKIE['remember_me'] ?? false;
         if ($auth_cookie) {
             Login::deleteLoginFromCookie($auth_cookie);
-            setcookie('remember_me', '', time() - 3600);
+            setcookie('remember_me', '', time() - 36000);
+
         }
     }
 }

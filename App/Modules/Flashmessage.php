@@ -12,8 +12,8 @@ use App\Models\User;
 class Flashmessage 
 {
     const SUCCESS = "success";
-    const INFO = "info";
-    const FAIL = "fail";
+    const INFO = 'warning';
+    const FAIL = 'danger';
 
     public static function set($message, $type ="success") 
     {

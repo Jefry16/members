@@ -43,4 +43,8 @@ class Config
 
 
     const SECRET_KEY = '';
+
+    public static $member_id = 'member_id';
+
+    public static $admin_id = 'admin_id';
 }

@@ -25,6 +25,14 @@ class Statico extends \Core\Controller
 
     public function registerAction()
     {
+        $this->redirectWhenAdminOrUserLoggedIn();
+
         View::renderTemplate('Frontend/Statico/register.html');
+    }
+
+    public function loginAction()
+    {
+        $this->redirectWhenAdminOrUserLoggedIn();
+        View::renderTemplate('Frontend/Statico/login.html');
     }
 }

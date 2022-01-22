@@ -1,6 +1,9 @@
 <?php
 
 namespace Core;
+
+use App\Config;
+
 use App\Modules\Auth;
 use App\Modules\Flashmessage;
 
@@ -93,9 +96,9 @@ abstract class Controller
         }
     }
 
-    protected function redirectIfNotLoggedInAdmin()
+    protected function redirectWhenAdminOrUserNotLoggedIn()
     {
-        if (!Auth::getCurrentLoggedInAdmin()) {
+        if (!Auth::getCurrentLoggedInUser(Config::$member_id)) {
 
             Auth::setLastPage();
             Flashmessage::set('You need to log in to view this page', Flashmessage::INFO);
@@ -105,9 +108,9 @@ abstract class Controller
         }
     }
 
-    protected function redirectWhenAdminLoggedIn($url = '/')
+    protected function redirectWhenAdminOrUserLoggedIn($url = '/')
     {
-        if (isset($_SESSION['admin_id'])) {
+        if (isset($_SESSION[Config::$member_id]) || isset($_SESSION['admin_id'])) {
 
             header('Location: http://' . $_SERVER['HTTP_HOST'] . $url, true, 303);
 

@@ -31,8 +31,12 @@ $router->add('', ['controller' => 'Home', 'action' => 'index', 'namespace' => 'B
 $router->add('about', ['controller' => 'Statico', 'action' => 'about', 'namespace' => 'Frontend']);
 $router->add('contact', ['controller' => 'Statico', 'action' => 'contact', 'namespace' => 'Frontend']);
 $router->add('register', ['controller' => 'Statico', 'action' => 'register', 'namespace' => 'Frontend']);
+$router->add('login', ['controller' => 'Statico', 'action' => 'login', 'namespace' => 'Frontend']);
+
 
 //frontend routes
+$router->add('{controller}/{action}', ['namespace' => 'Frontend']);
+
 
 //backend routes
 
