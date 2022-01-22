@@ -96,9 +96,9 @@ abstract class Controller
         }
     }
 
-    protected function redirectWhenAdminOrUserNotLoggedIn()
+    protected function redirectWhenNotLoggedIn($userType)
     {
-        if (!Auth::getCurrentLoggedInUser(Config::$member_id)) {
+        if (!Auth::getCurrentLoggedInUser($userType)) {
 
             Auth::setLastPage();
             Flashmessage::set('You need to log in to view this page', Flashmessage::INFO);
@@ -110,7 +110,7 @@ abstract class Controller
 
     protected function redirectWhenAdminOrUserLoggedIn($url = '/')
     {
-        if (isset($_SESSION[Config::$member_id]) || isset($_SESSION['admin_id'])) {
+        if (isset($_SESSION[Config::$member_type]) || isset($_SESSION['admin_id'])) {
 
             header('Location: http://' . $_SERVER['HTTP_HOST'] . $url, true, 303);
 

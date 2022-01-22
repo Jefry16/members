@@ -2,7 +2,12 @@
 
 namespace App\Controllers\Frontend;
 
+use App\Config;
+use App\Models\Account as ModelsAccount;
+
 use App\Modules\Auth;
+use App\Modules\Flashmessage;
+
 use Core\View;
 
 /**
@@ -25,12 +30,31 @@ class Account extends \Core\Controller
 
     public function changePasswordAction()
     {
-        $this->redirectWhenAdminOrUserNotLoggedIn();
+        $this->redirectWhenNotLoggedIn(Config::$member_type);
+
         View::renderTemplate('Frontend/Statico/change-password.html');
     }
 
     public function sendChangeAction()
     {
-        var_dump($_SESSION);
+        $this->redirectWhenNotLoggedIn(Config::$member_type);
+
+        $user = ModelsAccount::findById();
+
+        $userAccount = new ModelsAccount($_POST);
+
+        if ($user && password_verify($_POST['cpassword'], $user->pass)) {
+            if ($userAccount->save()) {
+                Flashmessage::set('Your new password has been set correctly', Flashmessage::SUCCESS);
+                $this->redirect('/');
+            } else {
+                Flashmessage::set($userAccount->errors['password'], Flashmessage::FAIL);
+                View::renderTemplate('Frontend/Statico/change-password.html');
+            }
+        } else {
+            Flashmessage::set('Invalid current password', Flashmessage::FAIL);
+            View::renderTemplate('Frontend/Statico/change-password.html');
+        }
+
     }
 }

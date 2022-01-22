@@ -38,7 +38,8 @@ $router->add('login', ['controller' => 'Statico', 'action' => 'login', 'namespac
 $router->add('{controller}/{action}', ['namespace' => 'Frontend']);
 
 
-//backend routes
+//backoffice routes
+
 
 
     

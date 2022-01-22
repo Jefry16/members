@@ -13,7 +13,7 @@ use App\Modules\Token;
 class Login extends \Core\Model
 {
 
-    public static function getLoginFronCookie($cookie)
+    public static function getLoginFromCookie($cookie)
     {
         $token = new Token($cookie);
         $sql = 'SELECT user_id, expires_at from remembered_logins WHERE token_hash = :cookie';

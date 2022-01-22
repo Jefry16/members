@@ -26,7 +26,7 @@ class Login extends \Core\Controller
         $rememberMe = isset($_POST['rememberMe']);
 
         if ($user) {
-            Auth::login($user, $rememberMe, Config::$member_id);
+            Auth::login($user, $rememberMe, $user->type . '_id');
 
             $this->redirect(Auth::getLastPage());
         } else {

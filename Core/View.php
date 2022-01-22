@@ -48,7 +48,9 @@ class View
         if ($twig === null) {
             $loader = new \Twig\Loader\FilesystemLoader(dirname(__DIR__) . '/App/Views');
             $twig = new \Twig\Environment($loader);
-            $twig->addGlobal('currentMember', \App\Modules\Auth::getCurrentLoggedInUser(Config::$member_id));
+            $twig->addGlobal('currentMember', \App\Modules\Auth::getCurrentLoggedInUser(Config::$member_type));
+            $twig->addGlobal('currentAdmin', \App\Modules\Auth::getCurrentLoggedInUser(Config::$admin_type));
+
 
             //$twig->addGlobal('currentAdmin', \App\Modules\Auth::getCurrentLoggedInUser('admin_id'));
             $twig->addGlobal('categories', \App\Modules\Globaldata::categoryAndPost());

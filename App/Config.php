@@ -44,7 +44,7 @@ class Config
 
     const SECRET_KEY = '';
 
-    public static $member_id = 'member_id';
+    public static $member_type = 'member_id';
 
-    public static $admin_id = 'admin_id';
+    public static $admin_type = 'admin_id';
 }

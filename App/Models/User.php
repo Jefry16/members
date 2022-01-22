@@ -122,7 +122,8 @@ class User extends \Core\Model
 
     public static function findByEmail($email)
     {
-        $sql = 'SELECT email, pass, id from users WHERE email = :email';
+        $sql = 'SELECT email, pass, id, type from users WHERE email = :email';
+
         $db = static::getDB();
         $stmt = $db->prepare($sql);
 
@@ -159,7 +160,8 @@ class User extends \Core\Model
 
     public static function findById($id)
     {
-        $sql = 'SELECT username from users WHERE id = :id';
+        $sql = 'SELECT username, pass from users WHERE id = :id';
+
         $db = static::getDB();
         $stmt = $db->prepare($sql);
 

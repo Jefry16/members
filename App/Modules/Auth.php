@@ -59,7 +59,7 @@ class Auth
         } else {
             $cookie_for_login = $_COOKIE['remember_me'] ?? false;
 
-            $login_data = Login::getLoginFronCookie($cookie_for_login);
+            $login_data = Login::getLoginFromCookie($cookie_for_login);
 
             if (is_object($login_data) && strtotime($login_data->expires_at) > time()) {
                 $_SESSION[$userType] = $login_data->user_id;
