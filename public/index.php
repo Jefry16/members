@@ -37,7 +37,9 @@ $router->add('logout', ['controller' => 'Login', 'action' => 'destroy', 'namespa
 
 
 //frontend routes
+$router->add('category/{category:[\w-]+}', ['controller' => 'Category', 'action' => 'view', 'namespace' => 'Frontend']);
 $router->add('{controller}/{action}', ['namespace' => 'Frontend']);
+
 
 
 //backoffice routes

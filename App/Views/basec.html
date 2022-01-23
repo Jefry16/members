@@ -87,7 +87,7 @@
 				<h3 class="text-success">Content</h3>
 			<div class="list-group">
         {% for c in categories %}
-        <a href="category.php?id=3" class="list-group-item"><span class="badge">{{ c.total }}</span>{{ c.category }}</a>
+        <a href="/category/{{ c.slug }}" class="list-group-item"><span class="badge">{{ c.total }}</span>{{ c.category }}</a>
         {% endfor %}
 			</div><!--/list-group-->
 					

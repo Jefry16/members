@@ -1,0 +1,15 @@
+{% extends "basec.html" %}
+
+{% block title %}{{ title }} {% endblock %}
+
+{% block body %}
+        
+        <h1>{{ title }}</h1>
+    
+        {% for p in posts %}
+            <div>
+                {{ p.title }}
+            </div>
+        {% endfor %}
+    
+{% endblock %}

@@ -7,10 +7,6 @@ use \App\Models\User;
 
 class Register extends \Core\Controller
 {
-    public function indexAction()
-    {
-        View::renderTemplate('Login/index.html');
-    }
 
     public function newAction()
     {

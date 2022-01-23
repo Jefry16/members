@@ -25,10 +25,11 @@ class Category extends \Core\Model
     {
         $db = static::getDB();
         $stmt = $db->query(
-            ' SELECT category, COUNT(pages.id) as total FROM categories
+            ' SELECT category, COUNT(pages.id) as total, slug, categories.id FROM categories
             LEFT JOIN pages ON  categories.id = pages.categories_id
             GROUP by category;'
         );
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+
 }

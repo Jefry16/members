@@ -11,15 +11,20 @@ use \Core\View;
  */
 class Pages extends \Core\Controller
 {
-    /**
-     * Show the index page
-     *
-     * @return void
-     */
+     
+    public function before()
+    {
+        
+        $this->redirectIfNotAdmin();
+    }
     public function indexAction()
     {
-        $this->redirectIfNotAdmin();
 
-        View::renderTemplate('Frontend/Home/index.html');
+        echo 'index';
+    }
+
+    public function addAction()
+    {
+        View::renderTemplate('Backend/Statico/add-page.html');
     }
 }

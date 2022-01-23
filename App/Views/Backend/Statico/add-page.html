@@ -1,0 +1,52 @@
+{% extends "basec.html" %}
+
+{% block title %}New Page{% endblock %}
+
+{% block body %}
+<div class="container">
+        <div class="row">
+			<div class="col-9">
+            <form method="POST" action="/login/create">
+			  <fieldset>
+			    <legend>Add a new page content</legend>
+			    <div class="form-group">
+			      <label for="title">Title</label>
+			      <input type="text" class="form-control " id="title" placeholder="Enter title" name="title" {% if title %}value="{{ title }}"{% endif %}>
+			    </div>
+
+                <div class="form-group">
+			      <label for="category">Category</label>
+			      <select name="category" id="category" class="form-control">
+                    <option value="">One</option>
+                  </select>
+			    </div>
+
+                <div class="form-group">
+			      <label for="description">Description</label>
+			      <textarea name="description" id="description" class="form-control"></textarea>
+			    </div>
+
+                <div class="form-group">
+			      <label for="content">Content</label>
+			      <textarea name="content" id="content" class="form-control"></textarea>
+			    </div>
+			    
+			    <button type="submit" class="btn btn-primary">Save</button>
+			  </fieldset>
+			</form>	
+            </div>
+        </div>
+    </div>
+    <script src="/tinymce/tinymce.min.js"></script>
+    <script>
+        tinyMCE.init({
+        selector : "#content",
+        height : 400,
+        browser_spellcheck : true,
+        plugins: "paste, searchreplace,fullscreen, hr, link,anchor, image, charmap, media, autoresize, autosave, contextmenu, wordcount",
+        toolbar1: "cut copy paste | undo redo removeformat | hr | link unlink anchor image | charmap media | search replace | fullscreen",
+        toolbar2: "bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | formatselect | bullist numlist | outdent indent blockquote",
+        content_css: '/css/bootstrap.min.css'
+        })
+    </script>
+{% endblock %}
