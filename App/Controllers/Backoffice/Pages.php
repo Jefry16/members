@@ -18,6 +18,8 @@ class Pages extends \Core\Controller
      */
     public function indexAction()
     {
+        $this->redirectIfNotAdmin();
+
         View::renderTemplate('Frontend/Home/index.html');
     }
 }

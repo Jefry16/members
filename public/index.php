@@ -32,6 +32,8 @@ $router->add('about', ['controller' => 'Statico', 'action' => 'about', 'namespac
 $router->add('contact', ['controller' => 'Statico', 'action' => 'contact', 'namespace' => 'Frontend']);
 $router->add('register', ['controller' => 'Statico', 'action' => 'register', 'namespace' => 'Frontend']);
 $router->add('login', ['controller' => 'Statico', 'action' => 'login', 'namespace' => 'Frontend']);
+$router->add('logout', ['controller' => 'Login', 'action' => 'destroy', 'namespace' => 'Frontend']);
+
 
 
 //frontend routes
@@ -39,6 +41,8 @@ $router->add('{controller}/{action}', ['namespace' => 'Frontend']);
 
 
 //backoffice routes
+
+$router->add('admin/{controller}/{action}', ['namespace' => 'Backoffice']);
 
 
 

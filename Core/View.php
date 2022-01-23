@@ -48,13 +48,12 @@ class View
         if ($twig === null) {
             $loader = new \Twig\Loader\FilesystemLoader(dirname(__DIR__) . '/App/Views');
             $twig = new \Twig\Environment($loader);
-            $twig->addGlobal('currentMember', \App\Modules\Auth::getCurrentLoggedInUser(Config::$member_type));
-            $twig->addGlobal('currentAdmin', \App\Modules\Auth::getCurrentLoggedInUser(Config::$admin_type));
+            $twig->addGlobal('currentMember', \App\Modules\Auth::getCurrentMember(Config::$member_type));
 
 
-            //$twig->addGlobal('currentAdmin', \App\Modules\Auth::getCurrentLoggedInUser('admin_id'));
+            $twig->addGlobal('currentAdmin', \App\Modules\Auth::getCurrentAdmin(Config::$admin_type));
+
             $twig->addGlobal('categories', \App\Modules\Globaldata::categoryAndPost());
-
 
             $twig->addGlobal('flash_notification', \App\Modules\Flashmessage::get());
             

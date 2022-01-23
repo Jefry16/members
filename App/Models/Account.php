@@ -24,7 +24,13 @@ class Account extends \Core\Model
 
     public static function findById()
     {
-        return User::findById($_SESSION[Config::$member_type]);
+        if (isset($_SESSION[Config::$member_type])) {
+            $id = $_SESSION[Config::$member_type];
+        } elseif (isset($_SESSION[Config::$admin_type])) {
+            $id = $_SESSION[Config::$admin_type];
+        }
+        return User::findById($id);
+
     }
 
     private function validateNewPassword($password)
@@ -39,7 +45,13 @@ class Account extends \Core\Model
         $this->validateNewPassword($_POST['npassword']);
 
         if (empty($this->errors)) {
-            $id = $_SESSION[Config::$member_type];
+            if (isset($_SESSION[Config::$member_type])) {
+                $id = $_SESSION[Config::$member_type];
+
+            } elseif (isset($_SESSION[Config::$admin_type])) {
+                $id = $_SESSION[Config::$admin_type];
+            }
+
             $hashed_password = password_hash($_POST['npassword'], PASSWORD_DEFAULT);
 
             $sql = "UPDATE users SET pass = :pass WHERE id = $id";

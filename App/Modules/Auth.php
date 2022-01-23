@@ -2,6 +2,8 @@
 
 namespace App\Modules;
 
+use App\Config;
+
 use App\Models\Login;
 use App\Models\User;
 
@@ -51,18 +53,35 @@ class Auth
         static::deleteLogin();
 
     }
-
-    public static function getCurrentLoggedInUser($userType)
+//getCurrentLoggedInUser
+    public static function getCurrentMember()
     {
-        if (isset($_SESSION[$userType])) {
-            return User::findById($_SESSION[$userType]);
+        if (isset($_SESSION[Config::$member_type])) {
+            return User::findById($_SESSION[Config::$member_type]);
         } else {
             $cookie_for_login = $_COOKIE['remember_me'] ?? false;
 
             $login_data = Login::getLoginFromCookie($cookie_for_login);
 
             if (is_object($login_data) && strtotime($login_data->expires_at) > time()) {
-                $_SESSION[$userType] = $login_data->user_id;
+                $_SESSION[Config::$member_type] = $login_data->user_id;
+
+
+            }
+        }
+    }
+
+    public static function getCurrentAdmin()
+    {
+        if (isset($_SESSION[Config::$admin_type])) {
+            return User::findById($_SESSION[Config::$admin_type]);
+        } else {
+            $cookie_for_login = $_COOKIE['remember_me'] ?? false;
+
+            $login_data = Login::getLoginFromCookie($cookie_for_login);
+
+            if (is_object($login_data) && strtotime($login_data->expires_at) > time()) {
+                $_SESSION[Config::$admin_type] = $login_data->user_id;
 
             }
         }

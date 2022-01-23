@@ -30,14 +30,15 @@ class Account extends \Core\Controller
 
     public function changePasswordAction()
     {
-        $this->redirectWhenNotLoggedIn(Config::$member_type);
+        $this->redirectIfNoneLoggedIn();
 
         View::renderTemplate('Frontend/Statico/change-password.html');
     }
 
     public function sendChangeAction()
     {
-        $this->redirectWhenNotLoggedIn(Config::$member_type);
+        $this->redirectIfNoneLoggedIn();
+
 
         $user = ModelsAccount::findById();
 

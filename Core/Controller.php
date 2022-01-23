@@ -96,12 +96,24 @@ abstract class Controller
         }
     }
 
-    protected function redirectWhenNotLoggedIn($userType)
+    protected function redirectIfNoneLoggedIn()
     {
-        if (!Auth::getCurrentLoggedInUser($userType)) {
+        if (!Auth::getCurrentMember() && !Auth::getCurrentAdmin()) {
 
             Auth::setLastPage();
             Flashmessage::set('You need to log in to view this page', Flashmessage::INFO);
+            $this->redirect('/login');
+
+            exit;
+        }
+    }
+
+    protected function redirectIfNotAdmin()
+    {
+        if (!Auth::getCurrentAdmin()) {
+
+            Auth::setLastPage();
+            Flashmessage::set('You need to log in as an admin to view this page', Flashmessage::INFO);
             $this->redirect('/login');
 
             exit;
