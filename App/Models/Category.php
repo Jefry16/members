@@ -21,11 +21,18 @@ class Category extends \Core\Model
         }
     }
 
+    public static function getAll()
+    {
+        $db = static::getDB();
+        $stmt = $db->query('SELECT category, id FROM categories');
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
     public static function getAllWithPostCounted()
     {
         $db = static::getDB();
         $stmt = $db->query(
-            ' SELECT category, COUNT(pages.id) as total, slug, categories.id FROM categories
+            ' SELECT category, COUNT(pages.id) as total, categories.slug, categories.id FROM categories
             LEFT JOIN pages ON  categories.id = pages.categories_id
             GROUP by category;'
         );

@@ -17,8 +17,12 @@ class Blog extends \Core\Controller
      *
      * @return void
      */
-    public function indexAction()
+
+
+    public function viewAction()
     {
-        View::renderTemplate('Login/index.html');
+        Blog::
+        View::renderTemplate('Frontend/Statico/post-view.html');
+
     }
 }

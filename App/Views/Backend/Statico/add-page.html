@@ -17,7 +17,11 @@
                 <div class="form-group">
 			      <label for="category">Category</label>
 			      <select name="category" id="category" class="form-control">
-                    <option value="">One</option>
+            {% for c in categories %}
+              
+
+                    <option value="{{ c.id }}">{{ c.category}}</option>
+                                {% endfor %}
                   </select>
 			    </div>
 

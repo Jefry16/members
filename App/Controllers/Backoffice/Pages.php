@@ -2,6 +2,8 @@
 
 namespace App\Controllers\Backoffice;
 
+use App\Models\Category;
+
 use \Core\View;
 
 /**
@@ -25,6 +27,10 @@ class Pages extends \Core\Controller
 
     public function addAction()
     {
-        View::renderTemplate('Backend/Statico/add-page.html');
+
+        View::renderTemplate('Backend/Statico/add-page.html', [
+            'categories' => Category::getAll()
+        ]);
+
     }
 }
